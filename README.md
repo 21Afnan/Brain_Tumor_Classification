@@ -69,67 +69,71 @@ All models were trained from scratch using PyTorch.
 
 After downloading, place the files in the `models/` directory.
 
-> ⚠️ These models are for **inference only**. For training code, please contact the author.
+## ⚠️ Inference-Only Notice
 
-📂 Project Structure
-graphql
-Copy
-Edit
+**These models are for inference only.**  
+For training code, please contact the author.
+
+---
+
+## 📂 Project Structure
 BrainTumorClassification/
-├── main.py                         # Unified pipeline entry point
-├── cnn_model.py                    # CNN architecture and classification logic
-├── ann_model.py                    # ANN for glioma stage prediction
-├── utils/                          # Helper functions for data loading/preprocessing
-├── dataset/                        # Sample data if added
+├── main.py # Unified pipeline entry point
+├── cnn_model.py # CNN architecture and classification logic
+├── ann_model.py # ANN for glioma stage prediction
+├── utils/ # Helper functions for data loading/preprocessing
+├── dataset/ # Sample data if added
 ├── models/
-│   ├── BTD_model.pth               # CNN model weights
-│   ├── glioma_stages.pth           # ANN model weights
-│   ├── BrainTumorClassification.ipynb   # Notebook for CNN testing
-│   └── Glioma_Stages.ipynb               # Notebook for ANN training/testing
+│ ├── BTD_model.pth # CNN model weights
+│ ├── glioma_stages.pth # ANN model weights
+│ ├── BrainTumorClassification.ipynb # Notebook for CNN testing
+│ └── Glioma_Stages.ipynb # Notebook for ANN training/testing
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-🔍 Steps to Use
-Upload a grayscale brain MRI image.
 
-The CNN model will classify the tumor type.
+---
 
-If the prediction is "Glioma", enter the gene mutation test values.
+## 🔍 Steps to Use
 
-The ANN model will return the predicted Glioma stage (I–IV).
+- **Step 1:** Upload a grayscale brain MRI image.  
+- **Step 2:** The CNN model classifies the tumor type.  
+- **Step 3:** If the result is **Glioma**, enter gene mutation test values.  
+- **Step 4:** The ANN model predicts the **Glioma stage (I–IV)**.
 
-✨ Features
-✅ End-to-end deep learning pipeline
+---
 
-✅ Accurate multi-class tumor classification
+## ✨ Features
 
-✅ Secondary glioma staging system using ANN
+- ✅ **End-to-end deep learning pipeline**
+- ✅ **Accurate multi-class tumor classification**
+- ✅ **Glioma staging system using ANN**
+- ✅ **Lightweight and fast inference**
+- ✅ **Clean, modular codebase (easy to extend)**
+- ✅ **Fully implemented based on real research**
 
-✅ Lightweight and fast inference
+---
 
-✅ Clean, modular codebase (easy to modify)
+## 🔮 Future Enhancements
 
-✅ Fully implemented based on real medical research
+- 💬 Integrate **Gemini AI** or chatbot assistant for medical explanations  
+- 🧠 Apply **transfer learning** (e.g., ResNet, VGG) for higher accuracy  
+- 🌐 Deploy as a **web app** using Streamlit, Flask, or FastAPI  
+- 🖼️ Add support for **DICOM medical image format**
 
-🔮 Future Enhancements
-💬 Integrate Gemini AI or a chatbot assistant for medical support
+---
 
-🧠 Apply transfer learning with models like ResNet, VGG, etc.
+## 👩‍💻 Author
 
-🌐 Deploy using Streamlit, Flask, or FastAPI
+- **Name:** *Afnan Shoukat*  
+- 📧 **Email:** [afnanshoukat011@gmail.com](mailto:afnanshoukat011@gmail.com)  
+- 🔗 **LinkedIn:** [linkedin.com/in/afnan-shoukat-030306267](https://www.linkedin.com/in/afnan-shoukat-030306267)
 
-🖼️ Add support for DICOM image format used in clinical settings
+---
 
-👩‍💻 Author
-Name: Afnan Shoukat
+## 📝 License
 
-📧 Email: afnanshoukat011@gmail.com
+- This project is developed for **academic and research purposes only**.  
+- You are welcome to **fork**, **reuse**, and **reference** it.  
+- Please make sure to **give proper credit** 🙏
 
-🔗 LinkedIn: linkedin.com/in/afnan-shoukat-030306267
-
-📝 License
-This project is developed for academic and research purposes only.
-
-You are welcome to fork, reuse, and reference it.
-
-Please remember to give proper credit 🙏
