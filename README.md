@@ -77,21 +77,24 @@ For training code, please contact the author.
 ---
 
 ## 📂 Project Structure
+
+```bash
 BrainTumorClassification/
-├── main.py                          # Unified pipeline entry point
-├── cnn_model.py                     # CNN architecture and classification logic
-├── ann_model.py                     # ANN for glioma stage prediction
-├── utils/                           # Helper functions for data loading/preprocessing
-├── dataset/                         # Sample data if added
+├── main.py                     # Entry point: run this
+├── ann_model.py                # ANN logic for glioma stage
+├── cnn_model.py                # CNN architecture for image classification
+├── utils/                      # Helper functions (preprocessing, loading, etc.)
+├── dataset/                    # Image data (if any sample added)
 ├── models/
-│   ├── BTD_model.pth                # CNN model weights
-│   ├── glioma_stages.pth            # ANN model weights
+│   ├── BTD_model.pth           # (Download from Drive and place the file here)
+│   ├── glioma_stages.pth           # Saved Model for Glioma Stages Detection
 │   ├── BrainTumorClassification.ipynb   # Notebook for CNN testing
 │   └── Glioma_Stages.ipynb               # Notebook for ANN training/testing
-├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
+---
 
 
 ## 🔍 Steps to Use
