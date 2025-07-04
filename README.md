@@ -71,47 +71,65 @@ After downloading, place the files in the `models/` directory.
 
 > ⚠️ These models are for **inference only**. For training code, please contact the author.
 
----
-
-## 📂 Project Structure
-
-<pre> 📁 BrainTumorClassification/ ├── main.py # Unified pipeline entry point ├── cnn_model.py # CNN architecture and classification logic ├── ann_model.py # ANN for glioma stage prediction ├── utils/ # Helper functions for data loading/preprocessing ├── dataset/ # Sample data if added ├── models/ │ ├── BTD_model.pth # CNN model weights │ ├── glioma_stages.pth # ANN model weights │ ├── BrainTumorClassification.ipynb # Notebook for CNN testing │ └── Glioma_Stages.ipynb # Notebook for ANN training/testing ├── requirements.txt ├── README.md └── .gitignore </pre>
-🔍 Steps:
+📂 Project Structure
+graphql
+Copy
+Edit
+BrainTumorClassification/
+├── main.py                         # Unified pipeline entry point
+├── cnn_model.py                    # CNN architecture and classification logic
+├── ann_model.py                    # ANN for glioma stage prediction
+├── utils/                          # Helper functions for data loading/preprocessing
+├── dataset/                        # Sample data if added
+├── models/
+│   ├── BTD_model.pth               # CNN model weights
+│   ├── glioma_stages.pth           # ANN model weights
+│   ├── BrainTumorClassification.ipynb   # Notebook for CNN testing
+│   └── Glioma_Stages.ipynb               # Notebook for ANN training/testing
+├── requirements.txt
+├── README.md
+└── .gitignore
+🔍 Steps to Use
 Upload a grayscale brain MRI image.
 
-CNN model classifies tumor type.
+The CNN model will classify the tumor type.
 
-If prediction is "Glioma", enter gene mutation test values.
+If the prediction is "Glioma", enter the gene mutation test values.
 
-ANN model returns predicted Glioma stage (I–IV).
+The ANN model will return the predicted Glioma stage (I–IV).
 
 ✨ Features
 ✅ End-to-end deep learning pipeline
 
 ✅ Accurate multi-class tumor classification
 
-✅ Secondary glioma staging system
+✅ Secondary glioma staging system using ANN
 
 ✅ Lightweight and fast inference
 
-✅ Clean and modular codebase
+✅ Clean, modular codebase (easy to modify)
 
-✅ Independently implemented using real research
+✅ Fully implemented based on real medical research
 
 🔮 Future Enhancements
-Integrate Gemini AI or chatbot assistant for medical support
+💬 Integrate Gemini AI or a chatbot assistant for medical support
 
-Explore transfer learning (e.g., ResNet, VGG variants)
+🧠 Apply transfer learning with models like ResNet, VGG, etc.
 
-Deploy as a Streamlit, Flask, or FastAPI web app
+🌐 Deploy using Streamlit, Flask, or FastAPI
 
-Add support for DICOM medical image format
+🖼️ Add support for DICOM image format used in clinical settings
 
 👩‍💻 Author
-Afnan Shoukat
+Name: Afnan Shoukat
+
 📧 Email: afnanshoukat011@gmail.com
+
 🔗 LinkedIn: linkedin.com/in/afnan-shoukat-030306267
 
 📝 License
-This project is intended for academic and educational use only.
-You're welcome to fork or reference it—just please give proper credit 🙏
+This project is developed for academic and research purposes only.
+
+You are welcome to fork, reuse, and reference it.
+
+Please remember to give proper credit 🙏
