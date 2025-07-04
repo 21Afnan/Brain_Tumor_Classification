@@ -78,6 +78,7 @@ For training code, please contact the author.
 
 ## 📂 Project Structure
 BrainTumorClassification/
+│
 ├── main.py # Unified pipeline entry point
 ├── cnn_model.py # CNN architecture and classification logic
 ├── ann_model.py # ANN for glioma stage prediction
@@ -91,7 +92,6 @@ BrainTumorClassification/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-
 ---
 
 ## 🔍 Steps to Use
