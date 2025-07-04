@@ -6,156 +6,112 @@ A deep learning-based diagnostic system built from scratch, leveraging MRI brain
 
 ## 📌 Overview
 
-This project presents a **two-stage intelligent system** for medical image analysis:
+This project presents a **two-stage intelligent system** for brain tumor analysis:
 
-- **Stage 1:** Classify brain MRI scans into four categories using a CNN:
-  - No Tumor
-  - Meningioma
-  - Pituitary
-  - Glioma
+### 🔹 Stage 1: Tumor Classification (CNN)
+- **Input:** Grayscale MRI brain scan
+- **Output Classes:** 
+  - No Tumor  
+  - Meningioma  
+  - Pituitary  
+  - Glioma  
 
-- **Stage 2:** If **Glioma** is detected, use a separate ANN model to predict its **stage (I–IV)** based on gene mutation test inputs.
+### 🔹 Stage 2: Glioma Stage Detection (ANN)
+- **Only activated if Glioma is detected**
+- **Input:** Gene mutation test results (numerical)
+- **Output:** Glioma Stage (I–IV)
 
 ---
 
 ## 📚 Research Inspiration
 
-This work is inspired by a peer-reviewed research paper focused on deep learning-based brain tumor diagnosis.
-[
-> 🔗 **(https://onlinelibrary.wiley.com/doi/full/10.1155/2022/1830010)**
-> *(Note: The paper did not provide datasets or implementation. The entire system here, including data collection, modeling, and integration, was developed independently.)*
+This work is inspired by a peer-reviewed research paper on brain tumor classification:
+
+🔗 [Read the Research Paper](https://onlinelibrary.wiley.com/doi/full/10.1155/2022/1830010)
+
+> 📝 *Note: The original research paper did not provide datasets or implementation. The entire pipeline—data collection, preprocessing, model development, and integration—was developed independently from scratch.*
 
 ---
 
 ## 🗂️ Dataset
 
-- 📦 **Source:**  Brain Tumor MRI Dataset (Kaggle)
-- 📸 Grayscale `.jpg` MRI images
-- 📁 Categories: `Glioma`, `Meningioma`, `Pituitary`, `No Tumor`
+- 📦 **Source:** [Kaggle - Brain MRI Dataset](https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection)
+- 📸 Format: Grayscale `.jpg` images
+- 📁 Classes: Glioma, Meningioma, Pituitary, No Tumor
 
 ---
 
 ## 🧠 Model Architectures
 
-<details>
-<summary>🟦 CNN - Tumor Type Classification</summary>
+### 🟦 CNN - Tumor Type Classification
+- 3 Conv2D layers + ReLU + MaxPooling
+- Flatten + Fully Connected layers
+- Output: 4-Class Softmax Classifier
 
-- **Input:** Grayscale Brain MRI
-- **Layers:** 3 Conv2D layers + ReLU + MaxPooling
-- **Classifier:** Fully connected layers → Softmax output
-- **Classes:** 4 (No Tumor, Glioma, Meningioma, Pituitary)
-- **Framework:** PyTorch
-
-</details>
-
-<details>
-<summary>🟩 ANN - Glioma Stage Detection</summary>
-
-- **Input:** Gene mutation test results (numerical)
-- **Layers:** 2–3 Dense layers with ReLU
-- **Output:** Glioma stage (I–IV)
-- **Use Case:** Only triggered if CNN predicts "Glioma"
-
-</details>
+### 🟩 ANN - Glioma Stage Detection
+- Dense layers with ReLU activation
+- Input: Numerical gene mutation values
+- Output: Predicted Glioma Stage (I–IV)
 
 ---
 
 ## 💾 Pre-trained Models
 
-> All models trained from scratch using PyTorch.
+All models were trained from scratch using PyTorch.
 
-| Model | Purpose | File Path |
-|-------|---------|-----------|
-| CNN   | Brain Tumor Classification | `models/BTD_model.pth` |
+| Model | Purpose                    | File Path               |
+|-------|----------------------------|--------------------------|
+| CNN   | Brain Tumor Classification | `models/BTD_model.pth`   |
 | ANN   | Glioma Stage Detection     | `models/glioma_stages.pth` |
 
-⚠️ Models are for **inference only**. For training scripts, contact the author.
+📥 **Model Files Download:**  
+🔗 [Google Drive - Model Folder](https://drive.google.com/drive/folders/1OCmobHiuUzU2kSIliDUxS2eUKwwwyhyD?usp=sharing)
+
+After downloading, place the files in the `models/` directory.
+
+> ⚠️ These models are for **inference only**. For training code, please contact the author.
 
 ---
 
 ## 📂 Project Structure
 
-BrainTumorClassification/
-├── main.py                         # Unified pipeline entry point
-├── cnn_model.py                    # CNN architecture and logic
-├── ann_model.py                    # ANN architecture for stage prediction
-├── utils/                          # Helper functions
-├── dataset/                        # Sample image/test input (optional)
-├── models/
-│   ├── BTD_model.pth               # CNN model weights
-│   ├── glioma_stages.pth           # ANN model weights
-│   ├── BrainTumorClassification.ipynb  # Notebook for CNN testing
-│   └── Glioma_Stages.ipynb              # Notebook for ANN use
-├── requirements.txt
-├── README.md
-└── .gitignore
-📥 Model Download (External)
-Due to GitHub’s 100MB limit, trained models are hosted on Google Drive.
-
-🔗 Download CNN Model (BTD_model.pth)
-📁 Place it in: models/BTD_model.pth
-
-Optional Auto-download code:
-
-python
-Copy
-Edit
-import os
-import urllib.request
-
-model_url = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
-model_path = "models/BTD_model.pth"
-
-if not os.path.exists(model_path):
-    os.makedirs("models", exist_ok=True)
-    print("Downloading model...")
-    urllib.request.urlretrieve(model_url, model_path)
-    print("Model downloaded.")
-⚙️ Installation & Setup
-bash
-Copy
-Edit
-# 1. Clone the repository
-git clone https://github.com/your-username/BrainTumorClassification.git
-cd BrainTumorClassification
-
-# 2. Install dependencies
-pip install -r requirements.txt
-🚀 How to Run
-bash
-Copy
-Edit
-python main.py
-🧾 Steps:
-
+<pre> 📁 BrainTumorClassification/ ├── main.py # Unified pipeline entry point ├── cnn_model.py # CNN architecture and classification logic ├── ann_model.py # ANN for glioma stage prediction ├── utils/ # Helper functions for data loading/preprocessing ├── dataset/ # Sample data if added ├── models/ │ ├── BTD_model.pth # CNN model weights │ ├── glioma_stages.pth # ANN model weights │ ├── BrainTumorClassification.ipynb # Notebook for CNN testing │ └── Glioma_Stages.ipynb # Notebook for ANN training/testing ├── requirements.txt ├── README.md └── .gitignore </pre>
+🔍 Steps:
 Upload a grayscale brain MRI image.
 
-CNN predicts tumor type.
+CNN model classifies tumor type.
 
-If Glioma, enter gene mutation test data.
+If prediction is "Glioma", enter gene mutation test values.
 
-ANN predicts glioma stage.
+ANN model returns predicted Glioma stage (I–IV).
 
 ✨ Features
-✅ Full pipeline: Image-based classification + test-based stage prediction
+✅ End-to-end deep learning pipeline
+
+✅ Accurate multi-class tumor classification
+
+✅ Secondary glioma staging system
+
 ✅ Lightweight and fast inference
-✅ Clean, modular architecture
-✅ Extendable to other tumor types
-✅ Based on real research
 
-🧠 Future Improvements
-Add Chatbot integration (e.g., Gemini AI for medical explanation)
+✅ Clean and modular codebase
 
-Experiment with transfer learning (e.g., ResNet, VGG)
+✅ Independently implemented using real research
 
-Deploy as web or mobile app
+🔮 Future Enhancements
+Integrate Gemini AI or chatbot assistant for medical support
 
-Add support for DICOM images
+Explore transfer learning (e.g., ResNet, VGG variants)
 
-👤 Author
+Deploy as a Streamlit, Flask, or FastAPI web app
+
+Add support for DICOM medical image format
+
+👩‍💻 Author
 Afnan Shoukat
 📧 Email: afnanshoukat011@gmail.com
 🔗 LinkedIn: linkedin.com/in/afnan-shoukat-030306267
 
 📝 License
-This project is open for educational and academic research. Please give appropriate credit when using this repository.
+This project is intended for academic and educational use only.
+You're welcome to fork or reference it—just please give proper credit 🙏
