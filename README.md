@@ -126,7 +126,7 @@ BrainTumorClassification/
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻 Contact
 
 - **Name:** *Afnan Shoukat*  
 - 📧 **Email:** [afnanshoukat011@gmail.com](mailto:afnanshoukat011@gmail.com)  
